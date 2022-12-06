@@ -75,6 +75,7 @@ namespace Chessboard.Models
         boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber].LegalMove = true;
         break;
     }
+    boardGrid[currentCell.RowNumber, currentCell.ColNumber].Occupied = true;
   }
   }
 }

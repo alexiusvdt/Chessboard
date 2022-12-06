@@ -33,10 +33,13 @@ dev note:
   * If you'd like to be credited, please also include your **_github user profile link_**
 
 ## Additional Thanks
-
+* [Programming w/ Professor Sluiter](https://www.youtube.com/@shadsluiter) for the thorough tutorial
 
 ## Future implementations
-
+*add input checking (reply with default XY values? prompt re-enter?)
+*change XY#'s to chess notation
+*out of bounds errors (create a function to see if a move is safe, ie, on board, add to switch case moves)
+*nicer board printing (that is, lil boxes or buttons instead of asciis)
 
 ## License
 MIT License
