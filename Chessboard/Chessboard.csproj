@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+     <!-- Comment out line 6 when !frontend -->
+     <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>
