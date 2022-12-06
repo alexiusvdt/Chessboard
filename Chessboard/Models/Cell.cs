@@ -9,8 +9,10 @@ namespace Chessboard.Models
     public bool Occupied { get; set; }
     public bool LegalMove { get; set; }
   
-    public Cell(int x, int y);
+    public Cell(int x, int y)
+    {
       RowNumber = x;
       ColNumber = y;
+    }
   }
 }

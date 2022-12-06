@@ -37,7 +37,7 @@ namespace Chessboard.Models
     
     switch(piece)
     {
-      case :"Knight":
+      case "Knight":
         boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber + 1].LegalMove = true;
         boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber - 1].LegalMove = true;
         boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber + 1].LegalMove = true;
@@ -49,18 +49,30 @@ namespace Chessboard.Models
         break;
 
       case "King":
+        boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber - 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber + 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber - 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber + 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber + 0, currentCell.ColNumber - 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber - 0, currentCell.ColNumber + 1].LegalMove = true;
+        boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber + 0].LegalMove = true;
+        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber + 0].LegalMove = true;
         break;
 
       case "Queen":
+        //copy loops from Rook & Bishop
         break;
 
       case "Rook":
+        //make a loop that flags current row and col
         break;
       
       case "Bishop":
+        //make a loop that flags a slope of 1
         break;
 
       case "Pawn":
+        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber].LegalMove = true;
         break;
     }
   }
