@@ -22,6 +22,20 @@ namespace Chessboard.Models
         }
       }
     }
+
+  private static bool isSafe(Cell boardGrid)
+  {
+    if (boardGrid.RowNumber >= 8 || boardGrid.RowNumber < 0 || boardGrid.ColNumber < 0 || boardGrid.ColNumber >= 8 )
+      return false;
+    else 
+      return true;
+      
+    // //return true/false, check to see if it's in the range of 0 and size of board
+    //if cell operation out of bounds, return false
+    //if cell operation within bounds, return true
+
+  }
+
   public void NextLegalMoves(Cell currentCell, string piece)
   {
     // clear all previous moves
@@ -38,15 +52,23 @@ namespace Chessboard.Models
     switch(piece)
     {
       case "Knight":
-        boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber + 1].LegalMove = true;
-        boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber - 1].LegalMove = true;
-        boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber + 1].LegalMove = true;
-        boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber - 1].LegalMove = true;
-        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber + 2].LegalMove = true;
-        boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber - 2].LegalMove = true;
-        boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber + 2].LegalMove = true;
-        boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber - 2].LegalMove = true;
-        break;
+        if (isSafe(boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber + 1]))
+          boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber + 1].LegalMove = true;
+        if (isSafe(boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber - 1]))
+          boardGrid[currentCell.RowNumber + 2, currentCell.ColNumber - 1].LegalMove = true;
+        if (isSafe(boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber + 1]))
+          boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber + 1].LegalMove = true;
+        if (isSafe(boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber - 1])) 
+          boardGrid[currentCell.RowNumber - 2, currentCell.ColNumber - 1].LegalMove = true;
+        if (isSafe(boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber + 2]))  
+          boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber + 2].LegalMove = true;
+         if (isSafe(boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber - 2])) 
+          boardGrid[currentCell.RowNumber + 1, currentCell.ColNumber - 2].LegalMove = true;
+         if (isSafe(boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber + 2])) 
+          boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber + 2].LegalMove = true;
+         if (isSafe(boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber - 2])) 
+          boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber - 2].LegalMove = true;
+          break;
 
       case "King":
         boardGrid[currentCell.RowNumber - 1, currentCell.ColNumber - 1].LegalMove = true;
